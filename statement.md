@@ -1,63 +1,52 @@
-# app.py
-from core.io_module import create_record_interactive, show_all_records
-from core.query_module import find_by_name, find_by_department, top_by_gpa
-from core.stats_module import count_by_department, avg_gpa_by_department
+# Project Statement  
+**Student Record System**
 
-def menu():
-    print("\nStudentRecordSystem - Menu")
-    print("1. Create record")
-    print("2. View all records")
-    print("3. Search by name")
-    print("4. List by department")
-    print("5. Top students by GPA")
-    print("6. Department counts")
-    print("7. Department average GPA")
-    print("0. Exit")
+## Introduction
+This project, **Student Record System**, is developed to efficiently manage, analyze, and retrieve student information including personal details, academic performance, attendance, and generated reports.  
+The purpose of this project is to provide a clean, reliable, and modular architecture for handling student datasets in an educational environment.
 
-def main():
-    while True:
-        menu()
-        choice = input("Choice: ").strip()
-        if choice == "1":
-            create_record_interactive()
-        elif choice == "2":
-            show_all_records()
-        elif choice == "3":
-            q = input("Enter name or part: ").strip()
-            res = find_by_name(q)
-            if res:
-                for p in res:
-                    print(p.sid, p.full_name, p.department, p.gpa)
-            else:
-                print("No match.")
-        elif choice == "4":
-            d = input("Department: ").strip()
-            res = find_by_department(d)
-            if res:
-                for p in res:
-                    print(p.sid, p.full_name, p.year, p.gpa)
-            else:
-                print("No students in this department.")
-        elif choice == "5":
-            n = input("How many top students?: ").strip()
-            if n.isdigit():
-                for p in top_by_gpa(int(n)):
-                    print(p.sid, p.full_name, p.gpa)
-            else:
-                print("Enter a number.")
-        elif choice == "6":
-            counts = count_by_department()
-            for dept, cnt in counts.items():
-                print(dept, ":", cnt)
-        elif choice == "7":
-            avgs = avg_gpa_by_department()
-            for dept, avg in avgs.items():
-                print(dept, ":", round(avg, 2))
-        elif choice == "0":
-            print("Goodbye.")
-            break
-        else:
-            print("Invalid choice.")
+---
 
-if __name__ == "__main__":
-    main()
+## Objective
+The main objectives of the Student Record System are:
+
+1. **To store and organize student data** in a structured format.  
+2. **To provide convenient search and query features** for quick information retrieval.  
+3. **To generate performance reports** for each student using templates.  
+4. **To analyze student statistics** such as score distribution, top performers, and attendance patterns.  
+5. **To ensure modular code structure** using core modules such as I/O, Database Handling, Query Processing, and Statistical Analysis.
+
+---
+
+## Key Features
+- Student addition, deletion, and modification  
+- CSV-based database storage  
+- Search by name, ID, or attributes  
+- Statistical modules for class performance  
+- Auto-generated reports using Markdown templates  
+- Fully modular architecture  
+
+---
+
+## Project Scope
+This project is intended for:
+- Schools  
+- Coaching institutes  
+- Colleges  
+- Small academic departments  
+- Personal learning or portfolio projects  
+
+---
+
+## Declaration
+I hereby declare that this Student Record System project has been developed for educational purposes.  
+The code, structure, and files included are original and created as part of academic learning and software development practice.
+
+
+- **Developer:** Saroj (jonathan07-gif)  
+
+---
+
+## Date
+24/11/25
+
